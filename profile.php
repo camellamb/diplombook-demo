@@ -161,7 +161,10 @@ textarea {
 
                 <img id="profile_pic" src="<?php echo $image ?>"><br />
                 <a href="profile_image.php" style="text-decoration: none; color: #f0f;">
-                    Изменить Фото
+                    Изменить Фото Профиля
+                </a> |
+                <a href="profile_image.php" style="text-decoration: none; color: #f0f;">
+                    Изменить Фон
                 </a>
             </span>
             <br>

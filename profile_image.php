@@ -6,6 +6,7 @@ include("classes/connect.php");
 include("classes/login.php");
 include("classes/user.php");
 include("classes/post.php");
+include("classes/image.php");
 
 $login = new Login();
 $user_data = $login->check_login($_SESSION['diplombook_userid']);
@@ -20,13 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $filename = "uploads/" . $_FILES['file']['name'];
                 move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
+                $image = new Image();
+                $image->crop_image($filename, $filename, 800, 800);
+
                 if (file_exists($filename)) {
                     $userid = $user_data['userid'];
                     $query = "update users set profile_image = '$filename' where userid = '$userid' limit 1";
                     $DB = new Database();
                     $DB->save($query);
 
-                    header("Location: profile.php");
+                    header(("Location: profile.php"));
                     die;
                 }
             } else {
