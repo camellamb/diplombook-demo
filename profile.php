@@ -60,7 +60,7 @@ $friends = $user->get_friends($id);
     border: none;
     padding: 4px;
     font-size: 14px;
-    background-image: url(assets/images/search.png);
+    background-image: url(images/search.png);
     background-repeat: no-repeat;
     background-position: right;
 }
@@ -76,6 +76,10 @@ $friends = $user->get_friends($id);
     width: 100px;
     display: inline-block;
     margin: 2px;
+}
+
+#click_link {
+    text-decoration: none;
 }
 
 #friends_pic {
@@ -149,7 +153,7 @@ textarea {
 
             <?php
 
-            $image = "";
+            $image = "images/123.jpg";
             if (file_exists($user_data['cover_image'])) {
                 $image = $user_data['cover_image'];
             }
@@ -162,7 +166,11 @@ textarea {
 
                 <?php
 
-                $image = "";
+                $image = "images/user_male.jpg";
+                if ($user_data['gender'] == 'Женский') {
+                    $image = "images/user_female.jpg";
+                }
+
                 if (file_exists($user_data['profile_image'])) {
                     $image = $user_data['profile_image'];
                 }
@@ -186,9 +194,7 @@ textarea {
             </div>
             <br>
 
-            <a href="index.php">
-                <div id="menu_buttons">История</div>
-            </a>
+            <div id="menu_buttons"><a id="click_link" href="index.php">История</a></div>
             <div id="menu_buttons">Про меня</div>
             <div id="menu_buttons">Друзья</div>
             <div id="menu_buttons">Фотографии</div>

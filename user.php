@@ -1,9 +1,9 @@
 <div id="friends">
 
     <?php
-    $image = "assets/images/user_male.jpg";
+    $image = "images/user_male.jpg";
     if ($FRIEND_ROW['gender'] == "Женский") {
-        $image = "assets/images/user_female.jpg";
+        $image = "images/user_female.jpg";
     }
     ?>
 

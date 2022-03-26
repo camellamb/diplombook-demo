@@ -33,7 +33,7 @@ $user_data = $login->check_login($_SESSION['diplombook_userid']);
     border: none;
     padding: 4px;
     font-size: 14px;
-    background-image: url(assets/images/search.png);
+    background-image: url(images/search.png);
     background-repeat: no-repeat;
     background-position: right;
 }
@@ -128,7 +128,7 @@ textarea {
             <div style="min-height: 400px; flex: 1;">
 
                 <div id="friends_bar">
-                    <img id="profile_pic" src="assets/images/user_male.jpg"><br>
+                    <img id="profile_pic" src="images/user_male.jpg"><br>
                     <a href="profile.php" style="text-decoration: none;">
                         <?php
                         echo $user_data['first_name'] . "<br> " . $user_data['last_name']
@@ -162,7 +162,7 @@ textarea {
                     <!--post 1-->
                     <div id="post">
                         <div>
-                            <img src="assets/images/user1.png" style="width: 75px; margin-right: 4px;">
+                            <img src="images/user_male.jpg" style="width: 75px; margin-right: 4px;">
                         </div>
                         <div>
                             <div style="font-weight: bold; color: #405d9b">Саконджи Урокодаки</div>
@@ -180,7 +180,7 @@ textarea {
                     <!--post 2-->
                     <div id="post">
                         <div>
-                            <img src="assets/images/user2.png" style="width: 75px; margin-right: 4px;">
+                            <img src="images/user_male.jpg" style="width: 75px; margin-right: 4px;">
                         </div>
                         <div>
                             <div style="font-weight: bold; color: #405d9b">Кагая Убуяшики</div>

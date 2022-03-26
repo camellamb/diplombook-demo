@@ -2,9 +2,9 @@
     <div>
 
         <?php
-        $image = "assets/images/user_male.jpg";
+        $image = "images/user_male.jpg";
         if ($ROW_USER['gender'] == "Женский") {
-            $image = "assets/images/user_female.jpg";
+            $image = "images/user_female.jpg";
         }
         ?>
 
