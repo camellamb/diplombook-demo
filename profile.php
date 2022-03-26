@@ -146,7 +146,17 @@ textarea {
     <div style="width: 800px; margin: auto; min-height: 400px;">
 
         <div style="background-color: white; text-align: center; color: #405d9b;">
-            <img src="assets/images/student.png" style="width: 100%;">
+
+            <?php
+
+            $image = "";
+            if (file_exists($user_data['cover_image'])) {
+                $image = $user_data['cover_image'];
+            }
+
+            ?>
+
+            <img src="<?php echo $image ?>" style="width: 100%;">
 
             <span style="font-size: 12px;">
 
@@ -160,10 +170,10 @@ textarea {
                 ?>
 
                 <img id="profile_pic" src="<?php echo $image ?>"><br />
-                <a href="profile_image.php" style="text-decoration: none; color: #f0f;">
+                <a href="profile_image.php?change=profile" style="text-decoration: none; color: #f0f;">
                     Изменить Фото Профиля
                 </a> |
-                <a href="profile_image.php" style="text-decoration: none; color: #f0f;">
+                <a href="profile_image.php?change=cover" style="text-decoration: none; color: #f0f;">
                     Изменить Фон
                 </a>
             </span>
