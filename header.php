@@ -1,3 +1,15 @@
+<?php
+
+//default image
+$corner_image = "images/user_male.jpg";
+
+//sync image
+if (isset($user_data)) {
+    $corner_image = $user_data['profile_image'];
+}
+
+?>
+
 <!--top bar-->
 <div id="blue_bar">
     <div style="
@@ -9,7 +21,7 @@
 
         &nbsp &nbsp <input type="text" id="search_box" placeholder="Поиск">
 
-        <a href="profile.php"><img src="images/user_male.jpg" style="width: 50px; float: right;"></a>
+        <a href="profile.php"><img src="<?php echo $corner_image ?>" style="width: 50px; float: right;"></a>
 
         <a href="logout.php">
             <span style="font-size: 11px; float: right; margin: 10px; color: white;">

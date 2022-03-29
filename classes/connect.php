@@ -6,7 +6,7 @@ class Database
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $db = "database";
+    private $db = "project_db";
 
     function connect()
     {

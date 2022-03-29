@@ -96,47 +96,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Изменить фото профиля | Diplombook</title>
 </head>
 <style type="text/css">
-#blue_bar {
-    height: 50px;
-    background-color: #405d9b;
-    color: #d9dfeb;
-}
+    #blue_bar {
+        height: 50px;
+        background-color: #405d9b;
+        color: #d9dfeb;
+    }
 
-#search_box {
-    width: 400px;
-    height: 20px;
-    border-radius: 5px;
-    border: none;
-    padding: 4px;
-    font-size: 14px;
-    background-image: url(assets/images/search.png);
-    background-repeat: no-repeat;
-    background-position: right;
-}
+    #search_box {
+        width: 400px;
+        height: 20px;
+        border-radius: 5px;
+        border: none;
+        padding: 4px;
+        font-size: 14px;
+        background-image: url(assets/images/search.png);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
 
-#post_button {
-    float: right;
-    background-color: #405d9b;
-    border: none;
-    color: white;
-    padding: 4px;
-    font-size: 14px;
-    border-radius: 2px;
-    width: 100px;
-}
+    #post_button {
+        float: right;
+        background-color: #405d9b;
+        border: none;
+        color: white;
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 2px;
+        width: 100px;
+    }
 
-#post_bar {
-    margin-top: 20px;
-    background-color: white;
-    padding: 10px;
-}
+    #post_bar {
+        margin-top: 20px;
+        background-color: white;
+        padding: 10px;
+    }
 
-#post {
-    padding: 4px;
-    font-size: 13px;
-    display: flex;
-    margin-bottom: 20px;
-}
+    #post {
+        padding: 4px;
+        font-size: 13px;
+        display: flex;
+        margin-bottom: 20px;
+    }
 </style>
 
 <body style="
@@ -161,8 +161,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form method="post" enctype="multipart/form-data">
                     <div style="border: solid thin #aaa; padding: 10px; background-color: white;">
                         <input type="file" name="file"><br>
-                        <input id="post_button" type="submit" value="Добавить">
+                        <input id="post_button" type="submit" value="Изменить">
                         <br>
+
+                        <div style="text-align: center;">
+                            <br><br>
+                            <?php
+
+                            if (isset($_GET['change']) && $_GET['change'] == "cover") {
+                                $change = "cover";
+                                echo "<img src='$user_data[cover_image]' style='max-width:500px;'>";
+                            } else {
+                                echo "<img src='$user_data[profile_image]' style='max-width:500px;'>";
+                            }
+
+                            ?>
+                        </div>
+
                     </div>
                 </form>
 
