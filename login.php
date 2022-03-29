@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div id="bar">
         <div style="font-size: 40px;">Diplombook</div>
-        <div id="signup_button">Регистрация</div>
+        <div id="signup_button"><a style="text-decoration: none; color:white;" href="signup.php">Регистрация</a></div>
     </div>
 
     <div id="bar2">
