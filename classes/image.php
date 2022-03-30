@@ -104,4 +104,111 @@ class Image
         imagejpeg($new_crop_img, $crop_file, 90);
         imagedestroy($new_crop_img);
     }
+
+    //resize the image
+    public function resize_image($orig_file, $resize_file, $max_width, $max_heigth)
+    {
+        if (file_exists($orig_file)) {
+            $orig_img = imagecreatefromjpeg($orig_file);
+
+            $orig_width = imagesx($orig_img);
+            $orig_heigth = imagesy($orig_img);
+
+            if ($orig_heigth > $orig_width) {
+                //make width equal to max width
+                $ratio = $max_width / $orig_width;
+
+                $new_width = $max_width;
+                $new_heigth = $orig_heigth * $ratio;
+            } else {
+                //make heigth equal to max heigth
+                $ratio = $max_heigth / $orig_heigth;
+
+                $new_heigth = $max_heigth;
+                $new_width = $orig_width * $ratio;
+            }
+        }
+
+        //adjust incase max width and height are different
+        if ($max_width != $max_heigth) {
+            if ($max_heigth > $max_width) {
+                if ($max_heigth > $new_heigth) {
+                    $adjustment = $max_heigth / $new_heigth;
+                } else {
+                    $adjustment = $new_heigth / $max_heigth;
+                }
+
+                $new_width = $new_width * $adjustment;
+                $new_heigth = $new_heigth * $adjustment;
+            } else {
+                if ($max_width > $new_width) {
+                    $adjustment = $max_width / $new_width;
+                } else {
+                    $adjustment = $new_width / $max_width;
+                }
+
+                $new_width = $new_width * $adjustment;
+                $new_heigth = $new_heigth * $adjustment;
+            }
+        }
+
+        $new_image = imagecreatetruecolor($new_width, $new_heigth);
+        imagecopyresampled($new_image, $orig_img, 0, 0, 0, 0, $new_width, $new_heigth, $orig_width, $orig_heigth);
+
+        imagedestroy($orig_img);
+
+        imagejpeg($new_image, $resize_file, 90);
+        imagedestroy($new_image);
+    }
+
+    //create thumbnail for cover image
+    public function get_thumb_cover($filename) {
+        $thumbnail = $filename . "_cover_thumb.jpg";
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        }
+
+        $this->crop_image($filename, $thumbnail, 1366, 488);
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        } else {
+            return $filename;
+        }
+    }
+
+    //create thumbnail for profile image
+    public function get_thumb_profile($filename) {
+        $thumbnail = $filename . "_profile_thumb.jpg";
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        }
+
+        $this->crop_image($filename, $thumbnail, 600, 600);
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        } else {
+            return $filename;
+        }
+    }
+
+    //create thumbnail for post image
+    public function get_thumb_post($filename) {
+        $thumbnail = $filename . "_post_thumb.jpg";
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        }
+
+        $this->crop_image($filename, $thumbnail, 600, 600);
+
+        if(file_exists($thumbnail)) {
+            return $thumbnail;
+        } else {
+            return $filename;
+        }
+    }
 }

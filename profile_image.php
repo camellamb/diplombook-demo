@@ -42,12 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (file_exists($user_data['cover_image'])) {
                         unlink($user_data['cover_image']);
                     }
-                    $image->crop_image($filename, $filename, 1366, 488);
+                    $image->resize_image($filename, $filename, 1500, 1500);
                 } else {
                     if (file_exists($user_data['profile_image'])) {
                         unlink($user_data['profile_image']);
                     }
-                    $image->crop_image($filename, $filename, 800, 800);
+                    $image->resize_image($filename, $filename, 1500, 1500);
                 }
 
                 if (file_exists($filename)) {
