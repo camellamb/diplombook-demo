@@ -16,7 +16,23 @@
             <?php echo $ROW_USER['first_name'] . " " . $ROW_USER['last_name'] ?>
         </div>
 
-        <?php echo $ROW['post'] ?>
+        <!--post data-->
+        <?php
+
+        echo $ROW['post'];
+
+        ?>
+        <br><br>
+        <?php
+
+        if(file_exists($ROW['image'])) {
+
+            $post_image = $image_class->get_thumb_post($ROW['image']);
+            echo "<img src = '$post_image' style='width:80%;'/>";
+        }
+
+        ?>
+        <!---->
 
         <br><br>
 

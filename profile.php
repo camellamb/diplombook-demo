@@ -13,9 +13,10 @@ $user_data = $login->check_login($_SESSION['diplombook_userid']);
 
 //posting
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $post = new Post();
     $id = $_SESSION['diplombook_userid'];
-    $result = $post->create_post($id, $_POST);
+    $result = $post->create_post($id, $_POST, $_FILES);
 
     if ($result == "") {
         header("Location: profile.php");
@@ -241,8 +242,9 @@ textarea {
                     background-color: white;">
 
                     <!--create a post-->
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <textarea name="post" placeholder="Опишите детали вашего проекта..."></textarea>
+                        <input type="file" name="file">
                         <input id="post_button" type="submit" value="Опубликовать">
                         <br>
                     </form>
