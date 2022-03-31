@@ -18,7 +18,8 @@
     <div style="width: 100%">
         <div style="font-weight: bold; color: #405d9b; width: 100%">
             <?php
-            echo $ROW_USER['first_name'] . " " . $ROW_USER['last_name'];
+            
+            echo htmlspecialchars($ROW_USER['first_name']) . " " . htmlspecialchars($ROW_USER['last_name']);
 
             //profile image update
             if ($ROW['profile_image']) {
@@ -51,12 +52,10 @@
         </div>
 
         <!--post data-->
-        <?php
+        <?php echo htmlspecialchars($ROW['post']); ?>
 
-        echo $ROW['post'];
-
-        ?>
         <br><br>
+
         <?php
 
         if (file_exists($ROW['image'])) {
