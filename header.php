@@ -5,7 +5,8 @@ $corner_image = "images/user_male.jpg";
 
 //sync image
 if (isset($user_data)) {
-    $corner_image = $user_data['profile_image'];
+    $image_class = new Image();
+    $corner_image = $image_class->get_thumb_profile($user_data['profile_image']);
 }
 
 ?>

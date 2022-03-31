@@ -6,7 +6,7 @@ class Post
 
     public function create_post($userid, $data, $files)
     {
-        if (!empty($data['post']) || !empty($files['file']['name'])) {
+        if (!empty($data['post']) || !empty($files['file']['name']) || isset($data['profile_image']) || isset($data['cover_image'])) {
 
             $myimage = "";
             $has_image = 0;
