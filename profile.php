@@ -1,5 +1,9 @@
 <?php
 
+echo "<pre>";
+print_r($_GET);
+echo "</pre>";
+
 include("classes/autoloader.php");
 
 $login = new Login();
