@@ -5,11 +5,14 @@ include("classes/autoloader.php");
 $login = new Login();
 $user_data = $login->check_login($_SESSION['diplombook_userid']);
 
-$profile = new Profile();
-$profile_data = $profile->get_profile($_GET['id']);
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
-if(is_array($profile_data)) {
-    $user_data = $profile_data[0];
+    $profile = new Profile();
+    $profile_data = $profile->get_profile($_GET['id']);
+
+    if (is_array($profile_data)) {
+        $user_data = $profile_data[0];
+    }
 }
 
 //posting
@@ -52,93 +55,93 @@ $image_class = new Image();
     <title>Профиль | Diplombook</title>
 </head>
 <style type="text/css">
-#blue_bar {
-    height: 50px;
-    background-color: #405d9b;
-    color: #d9dfeb;
-}
+    #blue_bar {
+        height: 50px;
+        background-color: #405d9b;
+        color: #d9dfeb;
+    }
 
-#search_box {
-    width: 400px;
-    height: 20px;
-    border-radius: 5px;
-    border: none;
-    padding: 4px;
-    font-size: 14px;
-    background-image: url(images/search.png);
-    background-repeat: no-repeat;
-    background-position: right;
-}
+    #search_box {
+        width: 400px;
+        height: 20px;
+        border-radius: 5px;
+        border: none;
+        padding: 4px;
+        font-size: 14px;
+        background-image: url(images/search.png);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
 
-#profile_pic {
-    width: 150px;
-    margin-top: -300px;
-    border-radius: 50%;
-    border: solid 2px white;
-}
+    #profile_pic {
+        width: 150px;
+        margin-top: -300px;
+        border-radius: 50%;
+        border: solid 2px white;
+    }
 
-#menu_buttons {
-    width: 100px;
-    display: inline-block;
-    margin: 2px;
-}
+    #menu_buttons {
+        width: 100px;
+        display: inline-block;
+        margin: 2px;
+    }
 
-#click_link {
-    text-decoration: none;
-}
+    #click_link {
+        text-decoration: none;
+    }
 
-#friends_pic {
-    width: 75px;
-    float: left;
-    margin: 8px;
-}
+    #friends_pic {
+        width: 75px;
+        float: left;
+        margin: 8px;
+    }
 
-#friends_bar {
-    background-color: white;
-    min-height: 400px;
-    margin-top: 20px;
-    color: #aaa;
-    padding: 8px;
-}
+    #friends_bar {
+        background-color: white;
+        min-height: 400px;
+        margin-top: 20px;
+        color: #aaa;
+        padding: 8px;
+    }
 
-#friends {
-    clear: both;
-    font-size: 12px;
-    font-weight: bold;
-    color: #405d9b;
-}
+    #friends {
+        clear: both;
+        font-size: 12px;
+        font-weight: bold;
+        color: #405d9b;
+    }
 
-textarea {
-    width: 100%;
-    border: none;
-    font-family: tahoma;
-    font-size: 14px;
-    height: 60px;
-}
+    textarea {
+        width: 100%;
+        border: none;
+        font-family: tahoma;
+        font-size: 14px;
+        height: 60px;
+    }
 
-#post_button {
-    float: right;
-    background-color: #405d9b;
-    border: none;
-    color: white;
-    padding: 4px;
-    font-size: 14px;
-    border-radius: 2px;
-    width: 100px;
-}
+    #post_button {
+        float: right;
+        background-color: #405d9b;
+        border: none;
+        color: white;
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 2px;
+        width: 100px;
+    }
 
-#post_bar {
-    margin-top: 20px;
-    background-color: white;
-    padding: 10px;
-}
+    #post_bar {
+        margin-top: 20px;
+        background-color: white;
+        padding: 10px;
+    }
 
-#post {
-    padding: 4px;
-    font-size: 13px;
-    display: flex;
-    margin-bottom: 20px;
-}
+    #post {
+        padding: 4px;
+        font-size: 13px;
+        display: flex;
+        margin-bottom: 20px;
+    }
 </style>
 
 <body style="
