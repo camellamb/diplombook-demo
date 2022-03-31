@@ -56,12 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     if ($change == "cover") {
                         $query = "update users set cover_image = '$filename' where userid = '$userid' limit 1";
+                        $_POST['cover_image'] = 1;
                     } else {
                         $query = "update users set profile_image = '$filename' where userid = '$userid' limit 1";
+                        $_POST['profile_image'] = 1;
                     }
 
                     $DB = new Database();
                     $DB->save($query);
+
+                    //create a post
+                    $post = new Post();
+                    $post->create_post($userid, $_POST, $filename);
 
                     header(("Location: profile.php"));
                     die;
