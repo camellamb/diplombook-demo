@@ -1,12 +1,6 @@
 <?php
 
-session_start();
-
-include("classes/connect.php");
-include("classes/login.php");
-include("classes/user.php");
-include("classes/post.php");
-include("classes/image.php");
+include("classes/autoloader.php");
 
 $login = new Login();
 $user_data = $login->check_login($_SESSION['diplombook_userid']);

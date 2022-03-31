@@ -6,9 +6,13 @@
         if ($ROW_USER['gender'] == "Женский") {
             $image = "images/user_female.jpg";
         }
+
+        if (file_exists($ROW_USER['profile_image'])) {
+            $image = $image_class->get_thumb_profile($ROW_USER['profile_image']);
+        }
         ?>
 
-        <img src="<?php echo $image ?>" style="width: 75px; margin-right: 4px;">
+        <img src="<?php echo $image ?>" style="width: 75px; margin-right: 4px; border-radius: 50%">
     </div>
 
     <div style="width: 100%">
