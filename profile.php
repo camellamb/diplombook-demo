@@ -1,13 +1,16 @@
 <?php
 
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-
 include("classes/autoloader.php");
 
 $login = new Login();
 $user_data = $login->check_login($_SESSION['diplombook_userid']);
+
+$profile = new Profile();
+$profile_data = $profile->get_profile($_GET['id']);
+
+if(is_array($profile_data)) {
+    $user_data = $profile_data[0];
+}
 
 //posting
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,16 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 //collect posts
 $post = new Post();
-$id = $_SESSION['diplombook_userid'];
+$id = $user_data['userid'];
 $posts = $post->get_posts($id);
 
 //collect friends
 $user = new User();
-$id = $_SESSION['diplombook_userid'];
 $friends = $user->get_friends($id);
 
+//
 $image_class = new Image();
-
 
 ?>
 
