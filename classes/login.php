@@ -23,10 +23,10 @@ class Login
                 //create session data
                 $_SESSION['diplombook_userid'] = $row['userid'];
             } else {
-                $this->error .= "Неправильный пароль!<br>";
+                $this->error .= "Неправильная почта или пароль!<br>";
             }
         } else {
-            $this->error .= "Почта не найдена!<br>";
+            $this->error .= "Неправильная почта или пароль!<br>";
         }
         return $this->error;
     }
