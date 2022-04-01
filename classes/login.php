@@ -19,16 +19,22 @@ class Login
         if ($result) {
             $row = $result[0];
 
-            if ($password == $row['password']) {
+            //check hashed password
+            if ($this->hash_text($password) == $row['password']) {
                 //create session data
                 $_SESSION['diplombook_userid'] = $row['userid'];
             } else {
-                $this->error .= "Неправильная почта или пароль!<br>";
+                $this->error .= "Неправильный пароль!<br>";
             }
         } else {
-            $this->error .= "Неправильная почта или пароль!<br>";
+            $this->error .= "Почта не найдена!<br>";
         }
         return $this->error;
+    }
+
+    private function hash_text($text) {
+        $text = hash("sha1", $text);
+        return $text;
     }
 
     public function check_login($id)
