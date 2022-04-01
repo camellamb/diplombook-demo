@@ -34,6 +34,7 @@ class Post
                     //create folder
                     if (!file_exists($folder)) {
                         mkdir($folder, 0777, true);
+                        file_put_contents($folder . "index.php", "");
                     }
 
                     $image_class = new Image();
