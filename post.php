@@ -76,7 +76,13 @@
         </span>
 
         <span style="color: #999; float: right">
-            Edit Delete
+            <a style="text-decoration: none;" href="edit.php">
+                Edit
+            </a>
+
+            <a style="text-decoration: none;" href="delete.php?id=<?php echo $ROW['postid']?>">
+                Delete
+            </a>
         </span>
 
     </div>

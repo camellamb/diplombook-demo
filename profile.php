@@ -202,11 +202,10 @@ $image_class = new Image();
             </div>
             <br>
 
-            <div id="menu_buttons"><a id="click_link" href="index.php">История</a></div>
-            <div id="menu_buttons">Про меня</div>
+            <div id="menu_buttons"><a id="click_link" href="index.php">Главная</a></div>
+            <div id="menu_buttons">Профиль</div>
+            <div id="menu_buttons">Проекты</div>
             <div id="menu_buttons">Друзья</div>
-            <div id="menu_buttons">Фотографии</div>
-            <div id="menu_buttons">Настройки</div>
         </div>
 
         <!--below cover area-->
